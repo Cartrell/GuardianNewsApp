@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Guardian News App</string>
+    <string name="layout_header">header line 1\nheader line 2</string>
+    <string name="layout_date_time">mm-dd-yyyy\nhh:mm</string>
+    <string name="layout_section">section</string>
+    <string name="no_articles_found">No news updates are available.\nPlease try different search criteria, reload the app, or check again later.</string>
+    <string name="news">News</string>
+    <string name="opinion">Opinion</string>
+    <string name="business">Business</string>
+    <string name="tech">Tech</string>
+    <string name="sport">Sport</string>
+    <string name="games">Games</string>
+    <string name="money">Money</string>
+    <string name="select_a_category">Select a category</string>
+    <string name="submit">Submit</string>
+    <string name="clear">Clear</string>
+    <string name="no_internet_connection">There is no internet connection.\nPlease try reconnecting to Wi-Fi.</string>
+    <string name="by_line">by %1$s</string>
+</resources>

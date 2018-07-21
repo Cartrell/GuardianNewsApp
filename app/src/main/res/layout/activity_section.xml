@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.gameplaycoder.cartrell.guardiannewsapp.SectionActivity">
+
+    <TextView
+        android:id="@+id/txt_section_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/select_a_category"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_section_header">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            >
+
+            <RadioGroup
+                android:id="@+id/sections_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/rad_news"
+                    android:tag="news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/news" />
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/rad_opinion"
+                    android:tag="commentisfree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/opinion" />
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/rad_business"
+                    android:tag="business"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/business" />
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/rad_tech"
+                    android:tag="tech"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tech" />
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/rad_sport"
+                    android:tag="sport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sport" />
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/rad_games"
+                    android:tag="games"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/games" />
+
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:id="@+id/rad_money"
+                    android:tag="money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/money" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_section_submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/submit"
+                    />
+
+                <Button
+                    android:id="@+id/btn_section_clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/clear"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
