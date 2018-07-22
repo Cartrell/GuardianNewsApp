@@ -15,9 +15,9 @@
     <string name="section_money">Money</string>
 
     <string name="section_news_value">news</string>
-    <string name="section_opinion_value">opinion</string>
+    <string name="section_opinion_value">commentisfree</string>
     <string name="section_business_value">business</string>
-    <string name="section_tech_value">tech</string>
+    <string name="section_tech_value">technology</string>
     <string name="section_sport_value">sport</string>
     <string name="section_games_value">games</string>
     <string name="section_money_value">money</string>
@@ -37,4 +37,5 @@
     <string name="settings_section_label">Category</string>
     <string name="settings_section_key" translatable="false">section</string>
     <string name="settings_section_default_value" translatable="false">@string/section_all</string>
+    <string name="search">Search</string>
 </resources>

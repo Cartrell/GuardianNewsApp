@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_corner_radius">8dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+    <dimen name="card_icon_size">48dp</dimen>
+    <dimen name="margin_unit">8dp</dimen>
+    <dimen name="news_item_text_header_size">18sp</dimen>
+    <dimen name="news_item_text_date_time_size">16sp</dimen>
+    <dimen name="news_item_text_author_size">16sp</dimen>
+    <dimen name="divider_height">2dp</dimen>
+    <dimen name="empty_text_size">20sp</dimen>
+</resources>

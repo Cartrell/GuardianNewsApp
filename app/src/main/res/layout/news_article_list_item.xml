@@ -5,21 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="8dp">
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevation" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <!-- /////////////////////////////////////// -->
         <!-- icon image -->
         <ImageView
             android:id="@+id/icon_image"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="@dimen/card_icon_size"
+            android:layout_height="@dimen/card_icon_size"
             android:layout_centerVertical="true"
-            android:layout_margin="8dp"
+            android:layout_margin="@dimen/margin_unit"
             app:srcCompat="@android:drawable/presence_invisible" />
 
         <!-- /////////////////////////////////////// -->
@@ -27,9 +28,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/margin_unit"
+            android:layout_marginRight="@dimen/margin_unit"
+            android:layout_marginTop="@dimen/margin_unit"
             android:layout_toLeftOf="@id/nav_icon_image"
             android:layout_toRightOf="@id/icon_image"
             android:orientation="vertical">
@@ -45,8 +46,8 @@
                 android:id="@+id/txt_header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:textSize="18sp"
+                android:layout_marginRight="@dimen/margin_unit"
+                android:textSize="@dimen/news_item_text_header_size"
                 android:textStyle="bold"
                 tools:text="@string/layout_header" />
 
@@ -54,14 +55,14 @@
                 android:id="@+id/txt_date_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="@dimen/news_item_text_date_time_size"
                 tools:text="@string/layout_date_time" />
 
             <TextView
                 android:id="@+id/txt_author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:textSize="@dimen/news_item_text_author_size"
                 tools:text="author" />
         </LinearLayout>
 
@@ -73,9 +74,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginBottom="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginBottom="@dimen/margin_unit"
+            android:layout_marginRight="@dimen/margin_unit"
+            android:layout_marginTop="@dimen/margin_unit"
             android:src="@drawable/web_nav_icon" />
 
     </RelativeLayout>

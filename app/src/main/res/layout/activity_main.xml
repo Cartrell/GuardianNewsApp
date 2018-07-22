@@ -6,22 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
-    tools:context="com.gameplaycoder.cartrell.guardiannewsapp.MainActivity">
+    tools:context="com.gameplaycoder.cartrell.guardiannewsapp.MainActivity"
+    >
 
     <RelativeLayout
         android:id="@+id/control_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp" >
+        android:layout_margin="@dimen/margin_unit" >
 
         <EditText
             android:id="@+id/edit_text_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="8dp"
-            android:hint="Search"
+            android:layout_marginTop="@dimen/margin_unit"
+            android:layout_marginRight="@dimen/margin_unit"
+            android:hint="@string/search"
             android:inputType="text"
             android:layout_centerVertical="true"
             android:imeOptions="actionDone"
@@ -30,10 +31,10 @@
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_margin="8dp"
+            android:layout_height="@dimen/divider_height"
+            android:layout_margin="@dimen/margin_unit"
             android:layout_below="@id/edit_text_search"
-            android:background="#00000000"
+            android:background="@color/divider_color"
             />
 
     </RelativeLayout>
@@ -55,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Longer line 1\nline 2"
-            android:textSize="20sp"
+            android:textSize="@dimen/empty_text_size"
             android:textStyle="bold"
             android:gravity="center_horizontal"
             android:layout_centerInParent="true"
