@@ -1,23 +1,25 @@
 package com.gameplaycoder.cartrell.guardiannewsapp;
 
-import android.app.Activity;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
   private static final String GUARDIAN_QUERY_PARAM = "q";
   private static final String GUARDIAN_SHOW_TAGS_PARAM = "show-tags";
   private static final String GUARDIAN_SHOW_TAGS_VALUE = "contributor";
+  private static final String GUARDIAN_PAGE_SIZE_PARAM = "page-size";
 
   /////////////////////////////////////////////////////////////////////////////////////////
   //=======================================================================================
@@ -61,14 +64,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
   @BindView(R.id.progress_bar)
   ProgressBar mProgressBar;
 
-  @BindView(R.id.img_btn_section)
-  ImageButton mImgBtnSection;
-
   @BindView(R.id.edit_text_search)
   EditText mSearchEditText;
 
   private String mQuery;
-  private String mSection;
   private int mLoaderId;
 
   /////////////////////////////////////////////////////////////////////////////////////////
@@ -112,6 +111,31 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     mAdapter.clear();
   }
 
+  //=======================================================================================
+  // onCreateOptionsMenu
+  //=======================================================================================
+  @Override
+  // This method initialize the contents of the Activity's options menu.
+  public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate the Options Menu we specified in XML
+    getMenuInflater().inflate(R.menu.main, menu);
+    return true;
+  }
+
+  //=======================================================================================
+  // onOptionsItemSelected
+  //=======================================================================================
+  @Override
+  public boolean onOptionsItemSelected(MenuItem item) {
+    int id = item.getItemId();
+    if (id == R.id.action_settings) {
+      Intent settingsIntent = new Intent(this, SettingsActivity.class);
+      startActivity(settingsIntent);
+      return true;
+    }
+    return(super.onOptionsItemSelected(item));
+  }
+
   /////////////////////////////////////////////////////////////////////////////////////////
   //=======================================================================================
   // protected
@@ -131,11 +155,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     setupListView();
 
-    mQuery = mSection = "";
+    mQuery = "";
     mLoaderId = 0;
 
     initSearchEditText();
-    initSectionsButton();
 
     if (!isConnected()) {
       mProgressBar.setVisibility(View.INVISIBLE);
@@ -157,8 +180,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
   // beginSearch
   //=======================================================================================
   private void beginSearch() {
-    getSection();
-
     mAdapter.clear();
     mProgressBar.setVisibility(View.VISIBLE);
 
@@ -170,30 +191,32 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
   // buildUrlString
   //=======================================================================================
   private String buildUrlString() {
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+    String numArticles = sharedPreferences.getString(
+      getString(R.string.settings_num_articles_key),
+      getString(R.string.settings_num_articles_default_value));
+
+    String defaultSection = getString(R.string.settings_section_default_value);
+    String section = sharedPreferences.getString(
+      getString(R.string.settings_section_key),
+      defaultSection);
+
     UrlStringBuilder urlStringBuilder = new UrlStringBuilder(GUARDIAN_BASE_URL);
     urlStringBuilder.addParam(GUARDIAN_API_KEY_PARAM, BuildConfig.GuardianApiKey);
     urlStringBuilder.addParam(GUARDIAN_SHOW_TAGS_PARAM, GUARDIAN_SHOW_TAGS_VALUE);
 
-    if (!mSection.isEmpty()) {
-      urlStringBuilder.addParam(GUARDIAN_SECTION_PARAM, mSection);
+    if (!section.equalsIgnoreCase(defaultSection)) {
+      urlStringBuilder.addParam(GUARDIAN_SECTION_PARAM, section);
     }
+
+    urlStringBuilder.addParam(GUARDIAN_PAGE_SIZE_PARAM, numArticles);
 
     if (!mQuery.isEmpty()) {
       urlStringBuilder.addParam(GUARDIAN_QUERY_PARAM, mQuery);
     }
 
     return(urlStringBuilder.buildString());
-  }
-
-  //=======================================================================================
-  // getSection
-  //=======================================================================================
-  private void getSection() {
-    Intent intent = getIntent();
-    mSection = intent.getStringExtra(SectionActivity.INTENT_PARAM_SECTION);
-    if (mSection == null) {
-      mSection = "";
-    }
   }
 
   //=======================================================================================
@@ -211,26 +234,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
           beginSearch();
         }
         return(false);
-      }
-    });
-  }
-
-  //=======================================================================================
-  // initSectionsButton
-  //=======================================================================================
-  private void initSectionsButton() {
-    final Activity activity = this;
-    final Context context = this;
-
-    mImgBtnSection.setOnClickListener(new View.OnClickListener() {
-
-      //===================================================================================
-      // onClick
-      //===================================================================================
-      @Override
-      public void onClick(View view) {
-        Intent intent = new Intent(context, SectionActivity.class);
-        activity.startActivity(intent);
       }
     });
   }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="settings_section_labels">
+        <item>@string/section_all</item>
+        <item>@string/section_business</item>
+        <item>@string/section_games</item>
+        <item>@string/section_money</item>
+        <item>@string/section_news</item>
+        <item>@string/section_opinion</item>
+        <item>@string/section_sport</item>
+        <item>@string/section_tech</item>
+    </string-array>
+
+    <string-array name="settings_section_values">
+        <item>@string/section_all</item>
+        <item>@string/section_business_value</item>
+        <item>@string/section_games_value</item>
+        <item>@string/section_money_value</item>
+        <item>@string/section_news_value</item>
+        <item>@string/section_opinion_value</item>
+        <item>@string/section_sport_value</item>
+        <item>@string/section_tech_value</item>
+    </string-array>
+</resources>

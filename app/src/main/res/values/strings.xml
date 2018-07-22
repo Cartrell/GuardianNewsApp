@@ -4,16 +4,37 @@
     <string name="layout_date_time">mm-dd-yyyy\nhh:mm</string>
     <string name="layout_section">section</string>
     <string name="no_articles_found">No news updates are available.\nPlease try different search criteria, reload the app, or check again later.</string>
-    <string name="news">News</string>
-    <string name="opinion">Opinion</string>
-    <string name="business">Business</string>
-    <string name="tech">Tech</string>
-    <string name="sport">Sport</string>
-    <string name="games">Games</string>
-    <string name="money">Money</string>
-    <string name="select_a_category">Select a category</string>
-    <string name="submit">Submit</string>
-    <string name="clear">Clear</string>
+
+    <string name="section_all">All</string>
+    <string name="section_news">News</string>
+    <string name="section_opinion">Opinion</string>
+    <string name="section_business">Business</string>
+    <string name="section_tech">Tech</string>
+    <string name="section_sport">Sport</string>
+    <string name="section_games">Games</string>
+    <string name="section_money">Money</string>
+
+    <string name="section_news_value">news</string>
+    <string name="section_opinion_value">opinion</string>
+    <string name="section_business_value">business</string>
+    <string name="section_tech_value">tech</string>
+    <string name="section_sport_value">sport</string>
+    <string name="section_games_value">games</string>
+    <string name="section_money_value">money</string>
+
     <string name="no_internet_connection">There is no internet connection.\nPlease try reconnecting to Wi-Fi.</string>
     <string name="by_line">by %1$s</string>
+
+    <string name="settings_menu_item">Settings</string>
+    <string name="settings_activity_label">Settings</string>
+
+    <string name="settings_preference_screen_title">Settings</string>
+
+    <string name="settings_num_articles_label">Number of Articles</string>
+    <string name="settings_num_articles_key" translatable="false">num_articles</string>
+    <string name="settings_num_articles_default_value" translatable="false">10</string>
+
+    <string name="settings_section_label">Category</string>
+    <string name="settings_section_key" translatable="false">section</string>
+    <string name="settings_section_default_value" translatable="false">@string/section_all</string>
 </resources>

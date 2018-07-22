@@ -64,13 +64,13 @@ class NewsArticleAdapter extends ArrayAdapter<NewsArticle> {
         parent, false);
     }
 
-    // bind view using butter knife
-    ButterKnife.bind(this, listItemView);
-
     NewsArticle newsArticle = getItem(position);
     if (newsArticle == null) {
       return (listItemView);
     }
+
+    // bind view using butter knife
+    ButterKnife.bind(this, listItemView);
 
     parseSection(newsArticle);
     parseHeader(newsArticle);
@@ -86,10 +86,11 @@ class NewsArticleAdapter extends ArrayAdapter<NewsArticle> {
   private void parseAuthor(NewsArticle newsArticle) {
     String author = newsArticle.getAuthor();
     if (author == null || author.isEmpty()) {
-      mTxtAuthor.setText("");
+      mTxtAuthor.setVisibility(View.GONE);
     } else {
       String format = getContext().getString(R.string.by_line);
-      mTxtDateTime.setText(String.format(format, author));
+      mTxtAuthor.setText(String.format(format, author));
+      mTxtAuthor.setVisibility(View.VISIBLE);
     }
   }
 
