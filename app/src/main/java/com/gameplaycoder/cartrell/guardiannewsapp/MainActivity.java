@@ -39,6 +39,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
   /////////////////////////////////////////////////////////////////////////////////////////
   private static final String GUARDIAN_BASE_URL = "https://content.guardianapis.com/search";
   private static final String GUARDIAN_API_KEY_PARAM = "api-key";
+
+  //If using the api key from the android.buildTypes.debug.buildConfigField or
+  // android.buildTypes.release.buildConfigField values, set this to null. Otherwise, a non-null
+  // value here will be used instead.
+  private static final String GUARDIAN_API_KEY_VALUE = null;
+
   private static final String GUARDIAN_SECTION_PARAM = "section";
   private static final String GUARDIAN_QUERY_PARAM = "q";
   private static final String GUARDIAN_SHOW_TAGS_PARAM = "show-tags";
@@ -203,7 +209,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
       defaultSection);
 
     UrlStringBuilder urlStringBuilder = new UrlStringBuilder(GUARDIAN_BASE_URL);
-    urlStringBuilder.addParam(GUARDIAN_API_KEY_PARAM, BuildConfig.GuardianApiKey);
+    final String API_KEY = GUARDIAN_API_KEY_VALUE != null ? GUARDIAN_API_KEY_VALUE : BuildConfig.GuardianApiKey;
+    urlStringBuilder.addParam(GUARDIAN_API_KEY_PARAM, API_KEY);
     urlStringBuilder.addParam(GUARDIAN_SHOW_TAGS_PARAM, GUARDIAN_SHOW_TAGS_VALUE);
 
     if (!section.equalsIgnoreCase(defaultSection)) {
